@@ -19,8 +19,11 @@ const chemicalsSlice = createSlice({
     },
     addChemical(state, action){
         state.chemicals=[...state.chemicals, action.payload]
+    },
+    searchChe(state, action){
+      state.chemicals.find(action.payload)
     }
   },
 });
-export const {deleteChemical, addChemical} = chemicalsSlice.actions;
+export const {deleteChemical, addChemical, searchChe} = chemicalsSlice.actions;
 export default chemicalsSlice.reducer;

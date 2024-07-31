@@ -3,14 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { Button, Table } from "reactstrap";
 import { deleteChemical, addChemical } from "../../redux/chemicalSlice";
 import AddChemical from "../add/AddChemical";
-import {
-  Container,
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-} from "reactstrap";
-import PropTypes from "prop-types";
+import {Container} from "reactstrap";
+import Search from "../search/Search";
 export default function ChemicalApp() {
   const { chemicals } = useSelector((state) => state.chemicals);
   const dispatch = useDispatch();
@@ -18,12 +12,10 @@ export default function ChemicalApp() {
   const deleteChe = (id) => {
     dispatch(deleteChemical(id));
   };
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-
-  const toggle = () => setDropdownOpen((prevState) => !prevState);
   return (
     <div>
       <h1>Add a chemical...</h1>
+      <Search/>
       <AddChemical />
 
       <Container>
